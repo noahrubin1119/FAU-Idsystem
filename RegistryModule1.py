@@ -8,6 +8,8 @@ import cv2
 
 
 print("starting video")
+print("Register New Student/s")
+print("Complete Form: ")
 
 vs = VideoStream().start()
 time.sleep(2.0)
@@ -37,7 +39,16 @@ while True:
 		questionMark = len(barcodeData)
 
 		barcodeData = barcodeData[0:questionMark]
-		url = "https://script.google.com/macros/s/AKfycbxFjSuWk3HR-m_b2GOBr7o5M0UlgzJGnUwOWrhDHkGYD6Wr0T-k/exec?id=Att&item1" + barcodeData + '&item2=2';
+
+		print("Swipe your card")
+
+		magstrip = input("Swipe")
+		questionMark = len(magstrip) - 1
+
+		magstrip = magstrip[1:questionMark]
+
+
+		url = "https://script.google.com/macros/s/AKfycbxFjSuWk3HR-m_b2GOBr7o5M0UlgzJGnUwOWrhDHkGYD6Wr0T-k/exec?id=Att&item1" + magstrip + "&item2=" + barcodeData;
 
 		print(url) 
 		urlopen(url)
